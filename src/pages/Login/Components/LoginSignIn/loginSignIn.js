@@ -6,13 +6,14 @@ import Swal from 'sweetalert2';
 
 const LoginSingIn = () => {
     const [shown, setShown] = React.useState(false);
-    const [password, setPassword] = React.useState('');
     const [email, setEmail] = React.useState('')
+    const [password, setPassword] = React.useState('');
     const switchShown = () => setShown(!shown);
     const onChange = ({ currentTarget }) => setPassword(currentTarget.value);
 
 
     const {
+
         register,
         handleSubmit,
         errors,
@@ -20,12 +21,23 @@ const LoginSingIn = () => {
         reset,
         formState: { isSubmitting }
     } = useForm();
-    const onSubmit = (data, e) => {
 
+
+
+
+    const onSubmit = (data, e) => {
         e.target.reset();
+
+        const account = {
+            email: email,
+            password: password
+        }
+        console.log('email: ' + email + ' password:' + password);
+
         Swal.fire({
+            position: 'center',
             icon: 'success',
-            title: 'Welcome',
+            title: `Welcome ${account['email']}`,
             showConfirmButton: false,
             timer: 1600
         })
@@ -35,12 +47,12 @@ const LoginSingIn = () => {
             <form onSubmit={handleSubmit(onSubmit)} >
                 <div className="container-input">
                     <input type="text" id="email" name="email" className="input-text" placeholder="Your email"
-                        onChange={e => setEmail(e.target.value)} />
+                        onChange={e => setEmail(e.target.value)} ref={register({ required: true, pattern: /^\S+@\S+$/i })} />
                     <div className="show" onClick={switchShown}>
                         {shown ? 'Hide' : 'Show'}</div>
                     <input type="password" id="password" name="password" onChange={onChange} value={password}
                         onChange={e => setPassword(e.target.value)} type={shown ? 'text' : 'password'}
-                        value={password} className="input-text" placeholder="Your password"></input>
+                        value={password} className="input-text" placeholder="Your password" ref={register({ required: true })}></input>
 
                 </div >
                 <div className="container-button">
@@ -52,14 +64,3 @@ const LoginSingIn = () => {
 };
 
 export default LoginSingIn;
-
-/*
-
-                    <div className="show" onClick={switchShown}>
-                        {shown ? 'Hide' : 'Show'}</div>
-                      <input type="password" id="password" name="password" onChange={onChange} value={password}
-                        onChange={e => setPassword(e.target.value)} type={shown ? 'text' : 'password'}
-                        value={password} className="input-text" placeholder="Your password" handleChange={handleChange}></input>
-
- onChange={(e) => setPasswords(e.target.value)}
-*/

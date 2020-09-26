@@ -17,9 +17,8 @@
     font-weight: 500;
     font-size: 13px;
     line-height: 20px;
-    
-    }
-    
+   
+    }    
 .show{
     
     position: absolute;
@@ -55,4 +54,57 @@
     font-size: 15px;
     line-height: 20px; 
    
+}
+@media (min-width:500px) {
+    .input-text{
+        width:350px;
+        height: 50px;        
+    }
+    .show{
+        margin-left: 310px;
+        margin-top: 14px;
+        font-size: 16px;        
+    }
+    .button{
+        width:300px;
+        height: 50px;
+        margin-left: 15px;
+        font-size: 18px;
+    }
+}
+@media (min-width:750px) {
+    .input-text{
+        width:400px;
+        height: 50px;
+        font-size: 15px;        
+    }
+    .show{
+        margin-left: 345px;
+        margin-top: 13px;
+        font-size: 20px;  
+        padding: 6px 12px;      
+    }
+    .button{
+        width:300px;
+        height: 50px;
+        margin-left: 50px;
+        font-size: 20px;
+    }
+}
+@media (min-width:1050px) {
+    .input-text{
+        width:350px;
+        height: 50px;        
+    }
+    .show{
+        margin-left: 310px;
+        margin-top: 12px;
+        font-size: 16px;        
+    }
+    .button{
+        width:300px;
+        height: 50px;
+        margin-left: 15px;
+        font-size: 18px;
+    }
 }

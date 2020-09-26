@@ -1,8 +1,7 @@
 .label-container{    
     margin-top: 50px;    
 }
-.label{  
-  
+.label{    
 text-align: center;
 letter-spacing: 0.1em;
 text-decoration-line: underline;
@@ -11,4 +10,9 @@ font-family: Montserrat;
 font-style: normal;
 font-weight: 500;
 font-size: 15px;
+}
+@media (min-width:500px) {
+.label{
+  font-size: 20px;
+}
 }
